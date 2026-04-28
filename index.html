@@ -4,50 +4,52 @@
     search: '', 
     filterType: 'all',
     selectedBolt: null,
+    selectedClass: 8.8,
+    classMultipliers: { 8.8: 1, 10.9: 1.41, 12.9: 1.68 },
     bolts: [
-        /* HEXAGONALE (DIN 933) - s: Cheie, k: Inaltime Cap, p: Pas */
-        { type: 'hex', m: 'M1.6', s: '3.2', k: '1.1', p: '0.35', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M2', s: '4', k: '1.4', p: '0.4', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M2.5', s: '5', k: '1.7', p: '0.45', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M3', s: '5.5', k: '2', p: '0.5', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M4', s: '7', k: '2.8', p: '0.7', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M5', s: '8', k: '3.5', p: '0.8', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M6', s: '10', k: '4', p: '1.0', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M8', s: '13', k: '5.3', p: '1.25', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M10', s: '17', k: '6.4', p: '1.5', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M12', s: '19', k: '7.5', p: '1.75', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M14', s: '22', k: '8.8', p: '2.0', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M16', s: '24', k: '10', p: '2.0', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M18', s: '27', k: '11.5', p: '2.5', std: 'DIN 933', img: 'hex.png' },
-        { type: 'hex', m: 'M20', s: '30', k: '12.5', p: '2.5', std: 'DIN 933', img: 'hex.png' },
+        /* HEXAGONALE (DIN 933) */
+        { type: 'hex', m: 'M1.6', s: '3.2', k: '1.1', p: '0.35', tap: '1.25', clear: '1.8', nmBase: 0.17, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M2', s: '4', k: '1.4', p: '0.4', tap: '1.6', clear: '2.2', nmBase: 0.35, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M2.5', s: '5', k: '1.7', p: '0.45', tap: '2.05', clear: '2.7', nmBase: 0.7, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M3', s: '5.5', k: '2', p: '0.5', tap: '2.5', clear: '3.2', nmBase: 1.2, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M4', s: '7', k: '2.8', p: '0.7', tap: '3.3', clear: '4.3', nmBase: 2.8, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M5', s: '8', k: '3.5', p: '0.8', tap: '4.2', clear: '5.3', nmBase: 5.5, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M6', s: '10', k: '4', p: '1.0', tap: '5.0', clear: '6.4', nmBase: 9.5, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M8', s: '13', k: '5.3', p: '1.25', tap: '6.8', clear: '8.4', nmBase: 23, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M10', s: '17', k: '6.4', p: '1.5', tap: '8.5', clear: '10.5', nmBase: 46, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M12', s: '19', k: '7.5', p: '1.75', tap: '10.2', clear: '13', nmBase: 79, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M14', s: '22', k: '8.8', p: '2.0', tap: '12.0', clear: '15', nmBase: 125, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M16', s: '24', k: '10', p: '2.0', tap: '14.0', clear: '17', nmBase: 195, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M18', s: '27', k: '11.5', p: '2.5', tap: '15.5', clear: '19', nmBase: 280, std: 'DIN 933', img: 'hex.png' },
+        { type: 'hex', m: 'M20', s: '30', k: '12.5', p: '2.5', tap: '17.5', clear: '21', nmBase: 390, std: 'DIN 933', img: 'hex.png' },
 
-        /* CILINDRICE IMBUS (DIN 912) - d: Diametru Cap, s: Cheie Imbus, k: Inaltime, p: Pas */
-        { type: 'imbus', m: 'M1.6', s: '1.5', k: '1.6', d: '3', p: '0.35', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M2', s: '1.5', k: '2', d: '3.8', p: '0.4', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M2.5', s: '2', k: '2.5', d: '4.5', p: '0.45', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M3', s: '2.5', k: '3', d: '5.5', p: '0.5', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M4', s: '3', k: '4', d: '7', p: '0.7', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M5', s: '4', k: '5', d: '8.5', p: '0.8', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M6', s: '5', k: '6', d: '10', p: '1.0', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M8', s: '6', k: '8', d: '13', p: '1.25', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M10', s: '8', k: '10', d: '16', p: '1.5', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M12', s: '10', k: '12', d: '18', p: '1.75', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M14', s: '12', k: '14', d: '21', p: '2.0', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M16', s: '14', k: '16', d: '24', p: '2.0', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M18', s: '14', k: '18', d: '27', p: '2.5', std: 'DIN 912', img: 'imbus.png' },
-        { type: 'imbus', m: 'M20', s: '17', k: '20', d: '30', p: '2.5', std: 'DIN 912', img: 'imbus.png' },
+        /* CILINDRICE IMBUS (DIN 912) */
+        { type: 'imbus', m: 'M1.6', s: '1.5', k: '1.6', d: '3', p: '0.35', tap: '1.25', clear: '1.8', nmBase: 0.17, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M2', s: '1.5', k: '2', d: '3.8', p: '0.4', tap: '1.6', clear: '2.2', nmBase: 0.35, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M2.5', s: '2', k: '2.5', d: '4.5', p: '0.45', tap: '2.05', clear: '2.7', nmBase: 0.7, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M3', s: '2.5', k: '3', d: '5.5', p: '0.5', tap: '2.5', clear: '3.2', nmBase: 1.2, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M4', s: '3', k: '4', d: '7', p: '0.7', tap: '3.3', clear: '4.3', nmBase: 2.8, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M5', s: '4', k: '5', d: '8.5', p: '0.8', tap: '4.2', clear: '5.3', nmBase: 5.5, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M6', s: '5', k: '6', d: '10', p: '1.0', tap: '5.0', clear: '6.4', nmBase: 9.5, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M8', s: '6', k: '8', d: '13', p: '1.25', tap: '6.8', clear: '8.4', nmBase: 23, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M10', s: '8', k: '10', d: '16', p: '1.5', tap: '8.5', clear: '10.5', nmBase: 46, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M12', s: '10', k: '12', d: '18', p: '1.75', tap: '10.2', clear: '13', nmBase: 79, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M14', s: '12', k: '14', d: '21', p: '2.0', tap: '12.0', clear: '15', nmBase: 125, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M16', s: '14', k: '16', d: '24', p: '2.0', tap: '14.0', clear: '17', nmBase: 195, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M18', s: '14', k: '18', d: '27', p: '2.5', tap: '15.5', clear: '19', nmBase: 280, std: 'DIN 912', img: 'imbus.png' },
+        { type: 'imbus', m: 'M20', s: '17', k: '20', d: '30', p: '2.5', tap: '17.5', clear: '21', nmBase: 390, std: 'DIN 912', img: 'imbus.png' },
 
-        /* INECATE IMBUS (DIN 7991) - d: Diametru Cap, s: Cheie Imbus, k: Inaltime Ref, p: Pas */
-        { type: 'inecat', m: 'M3', s: '2', k: '1.7', d: '6', p: '0.5', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M4', s: '2.5', k: '2.3', d: '8', p: '0.7', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M5', s: '3', k: '2.8', d: '10', p: '0.8', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M6', s: '4', k: '3.3', d: '12', p: '1.0', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M8', s: '5', k: '4.4', d: '16', p: '1.25', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M10', s: '6', k: '5.5', d: '20', p: '1.5', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M12', s: '8', k: '6.5', d: '24', p: '1.75', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M14', s: '10', k: '7.0', d: '27', p: '2.0', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M16', s: '10', k: '7.5', d: '30', p: '2.0', std: 'DIN 7991', img: 'inecat.png' },
-        { type: 'inecat', m: 'M20', s: '12', k: '8.5', d: '36', p: '2.5', std: 'DIN 7991', img: 'inecat.png' }
+        /* INECATE IMBUS (DIN 7991) */
+        { type: 'inecat', m: 'M3', s: '2', k: '1.7', d: '6', p: '0.5', tap: '2.5', clear: '3.2', nmBase: 1.2, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M4', s: '2.5', k: '2.3', d: '8', p: '0.7', tap: '3.3', clear: '4.3', nmBase: 2.8, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M5', s: '3', k: '2.8', d: '10', p: '0.8', tap: '4.2', clear: '5.3', nmBase: 5.5, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M6', s: '4', k: '3.3', d: '12', p: '1.0', tap: '5.0', clear: '6.4', nmBase: 9.5, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M8', s: '5', k: '4.4', d: '16', p: '1.25', tap: '6.8', clear: '8.4', nmBase: 23, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M10', s: '6', k: '5.5', d: '20', p: '1.5', tap: '8.5', clear: '10.5', nmBase: 46, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M12', s: '8', k: '6.5', d: '24', p: '1.75', tap: '10.2', clear: '13', nmBase: 79, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M14', s: '10', k: '7.0', d: '27', p: '2.0', tap: '12.0', clear: '15', nmBase: 125, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M16', s: '10', k: '7.5', d: '30', p: '2.0', tap: '14.0', clear: '17', nmBase: 195, std: 'DIN 7991', img: 'inecat.png' },
+        { type: 'inecat', m: 'M20', s: '12', k: '8.5', d: '36', p: '2.5', tap: '17.5', clear: '21', nmBase: 390, std: 'DIN 7991', img: 'inecat.png' }
     ],
     get filtered() {
         return this.bolts.filter(b => {
@@ -55,23 +57,25 @@
             const matchesType = this.filterType === 'all' || b.type === this.filterType;
             return matchesSearch && matchesType;
         });
+    },
+    calculateTorque() {
+        if (!this.selectedBolt) return 0;
+        let val = this.selectedBolt.nmBase * this.classMultipliers[this.selectedClass];
+        return val < 1 ? val.toFixed(2) : val.toFixed(1);
     }
 }" :class="darkMode ? 'dark' : ''">
 <head>
     <meta charset="UTF-8">
 	<link rel="icon" type="image/png" href="favicon.png">
-    <title>ScrewData Pro | Dimensiuni Standard</title>
+    <title>ScrewData Pro | Catalog Tehnic</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = { darkMode: 'class' }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script>tailwind.config = { darkMode: 'class' }</script>
     <style>
         [x-cloak] { display: none !important; }
-        body { font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s; }
         .heading { font-family: 'Space Grotesk', sans-serif; }
-        .bolt-grid-item { transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-[#050505] dark:text-slate-100 min-h-screen">
@@ -88,15 +92,12 @@
 
     <main class="max-w-6xl mx-auto px-6 pb-20">
         <div class="bg-white dark:bg-white/5 p-2 rounded-[2rem] border border-slate-200 dark:border-white/10 flex flex-col md:flex-row gap-2 mb-16 shadow-xl shadow-blue-500/5">
-            <input type="text" x-model="search" placeholder="Caută dimensiune..." 
-                class="bg-transparent py-4 px-8 outline-none text-lg flex-grow">
-            
-            <div class="flex gap-1 p-1">
+            <input type="text" x-model="search" placeholder="Caută dimensiune (ex: M6)..." class="bg-transparent py-4 px-8 outline-none text-lg flex-grow">
+            <div class="flex gap-1 p-1 overflow-x-auto">
                 <template x-for="t in [['all','Toate'], ['hex','Hex'], ['imbus','Cilindric'], ['inecat','Inecat']]">
                     <button @click="filterType = t[0]" 
-                        :class="filterType === t[0] ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30' : 'hover:bg-slate-100 dark:hover:bg-white/10'"
-                        class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all" 
-                        x-text="t[1]">
+                        :class="filterType === t[0] ? 'bg-blue-600 text-white shadow-lg' : 'hover:bg-slate-100 dark:hover:bg-white/10'"
+                        class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all whitespace-nowrap" x-text="t[1]">
                     </button>
                 </template>
             </div>
@@ -104,88 +105,91 @@
 
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <template x-for="bolt in filtered" :key="bolt.m + bolt.type">
-                <div @click="selectedBolt = bolt" 
-                    class="bolt-grid-item group bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 rounded-[2.5rem] cursor-pointer hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col items-center">
+                <div @click="selectedBolt = bolt; selectedClass = 8.8" 
+                    class="group bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 rounded-[2.5rem] cursor-pointer hover:border-blue-500/50 hover:shadow-2xl transition-all flex flex-col items-center">
                     <div class="w-16 h-16 mb-4 flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-white/5 group-hover:bg-blue-600/10 transition-colors">
-                        <span class="text-3xl text-slate-400 group-hover:text-blue-500" 
-                              x-text="bolt.type === 'hex' ? '⬢' : (bolt.type === 'inecat' ? '▼' : '◎')"></span>
+                        <span class="text-3xl text-slate-400 group-hover:text-blue-500 transition-colors" x-text="bolt.type === 'hex' ? '⬢' : (bolt.type === 'inecat' ? '▼' : '◎')"></span>
                     </div>
                     <span class="heading text-2xl font-bold" x-text="bolt.m"></span>
-                    <span class="text-[10px] opacity-40 font-bold tracking-[0.2em] uppercase mt-1" x-text="bolt.std"></span>
+                    <span class="text-[10px] opacity-40 font-bold uppercase mt-1" x-text="bolt.std"></span>
                 </div>
             </template>
         </div>
     </main>
 
     <div x-cloak x-show="selectedBolt" x-transition.opacity class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-        <div @click.away="selectedBolt = null" 
-            class="bg-white dark:bg-[#0f0f0f] w-full max-w-7xl rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
-            
+        <div @click.away="selectedBolt = null" class="bg-white dark:bg-[#0f0f0f] w-full max-w-7xl rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
             <div class="grid md:grid-cols-2">
-				<div class="bg-slate-50 dark:bg-white/5 p-10 flex flex-col items-center justify-center border-r border-white/5">
-					<div class="relative w-full h-70 flex items-center justify-center mb-6">
-						
-							<img :src="selectedBolt.img" :alt="selectedBolt?.type" class="max-w-full max-h-full object-contain">
-						
-					</div>
-					
-					<div class="text-center">
-						<p class="text-[10px] opacity-50 uppercase tracking-[0.2em] mb-1">Referință Vizuală</p>
-						<p class="font-bold uppercase text-blue-500 tracking-wider" x-text="selectedBolt?.std"></p>
-					</div>
-				</div>
+                <div class="bg-slate-50 dark:bg-white/5 p-10 flex flex-col items-center justify-center border-r border-white/5">
+                    <div class="relative w-full h-64 flex items-center justify-center mb-10">
+                        <img :src="selectedBolt?.img" class="max-w-full max-h-full object-contain drop-shadow-xl">
+                    </div>
+                    
+                    <p class="text-[10px] font-bold opacity-30 uppercase tracking-[0.3em] mb-4">Selectează Clasa de Rezistență</p>
+                    <div class="flex gap-3">
+                        <template x-for="c in [8.8, 10.9, 12.9]">
+                            <button @click="selectedClass = c" 
+                                :class="selectedClass === c ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/40 scale-110' : 'bg-slate-200 dark:bg-white/10 opacity-50 hover:opacity-100'"
+                                class="px-6 py-2 rounded-xl text-xs font-bold transition-all" x-text="'Clasa ' + c">
+                            </button>
+                        </template>
+                    </div>
+                </div>
 
-                <div class="p-10">
+                <div class="p-10 flex flex-col">
                     <div class="flex justify-between items-start mb-8">
                         <div>
-                            <h2 class="heading text-4xl font-bold" x-text="selectedBolt?.m"></h2>
-                            <p class="text-blue-600 font-mono text-sm" x-text="selectedBolt?.std"></p>
+                            <h2 class="heading text-6xl font-bold text-blue-600" x-text="selectedBolt?.m"></h2>
+                            <p class="font-bold uppercase text-slate-400 tracking-widest text-xs mt-2" x-text="selectedBolt?.std"></p>
                         </div>
-                        <button @click="selectedBolt = null" class="text-slate-400 hover:text-white text-2xl">&times;</button>
+                        <button @click="selectedBolt = null" class="text-slate-400 hover:text-white text-3xl">&times;</button>
                     </div>
 
-                    <div class="space-y-6">
-                        <div class="flex items-center justify-between group">
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter italic">Cheie / Hexagon</span>
-                                <span class="text-xl opacity-40 italic">Dimensiunea (s)</span>
-                            </div>
-                            <span class="text-2xl font-bold text-blue-500" x-text="selectedBolt?.s + ' mm'"></span>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-slate-50 dark:bg-white/5 p-5 rounded-2xl border border-white/5">
+                            <span class="text-[10px] font-bold opacity-40 uppercase">Cheie / Hexagon (s)</span>
+                            <p class="text-3xl font-bold mt-1 text-blue-500" x-text="selectedBolt?.s + ' mm'"></p>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter italic">Înălțime Cap</span>
-                                <span class="text-xl opacity-40 italic">Dimensiunea (k)</span>
-                            </div>
-                            <span class="text-2xl font-bold" x-text="selectedBolt?.k + ' mm'"></span>
+                        <div class="bg-slate-50 dark:bg-white/5 p-5 rounded-2xl border border-white/5">
+                            <span class="text-[10px] font-bold opacity-40 uppercase">Înălțime Cap (k)</span>
+                            <p class="text-3xl font-bold mt-1" x-text="selectedBolt?.k + ' mm'"></p>
+                        </div>
+                        <div class="bg-blue-600/5 p-5 rounded-2xl border border-blue-500/20">
+                            <span class="text-[10px] font-bold text-blue-500 uppercase">Ø Burghiu Filetare</span>
+                            <p class="text-3xl font-bold mt-1" x-text="selectedBolt?.tap + ' mm'"></p>
+                        </div>
+                        <div class="bg-orange-600/5 p-5 rounded-2xl border border-orange-500/20">
+                            <span class="text-[10px] font-bold text-orange-500 uppercase" x-text="'Cuplu (' + selectedClass + ')'"></span>
+                            <p class="text-3xl font-bold mt-1 text-orange-500" x-text="calculateTorque() + ' Nm'"></p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 mb-10">
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                            <span class="text-xs opacity-50 uppercase font-bold tracking-widest">Pas Filet</span>
+                            <span class="text-xl font-medium" x-text="selectedBolt?.p + ' mm'"></span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                            <span class="text-xs opacity-50 uppercase font-bold tracking-widest">Gaură de Trecere (Ø)</span>
+                            <span class="text-xl font-medium" x-text="selectedBolt?.clear + ' mm'"></span>
                         </div>
                         <template x-if="selectedBolt?.d">
-                            <div class="flex items-center justify-between">
-                                <div class="flex flex-col">
-                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter italic">Diametru Exterior Cap</span>
-                                    <span class="text-xl opacity-40 italic">Dimensiunea (dk/d)</span>
-                                </div>
-                                <span class="text-2xl font-bold" x-text="selectedBolt?.d + ' mm'"></span>
+                            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-xs opacity-50 uppercase font-bold tracking-widest">Diametru Cap (d)</span>
+                                <span class="text-xl font-medium" x-text="selectedBolt?.d + ' mm'"></span>
                             </div>
                         </template>
-                        <div class="flex items-center justify-between">
-                            <div class="flex flex-col">
-                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter italic">Pas Filet</span>
-                                <span class="text-xl opacity-40 italic">Standard (Pitch)</span>
-                            </div>
-                            <span class="text-2xl font-bold opacity-60" x-text="selectedBolt?.p + ' mm'"></span>
-                        </div>
                     </div>
 
-                    <button @click="selectedBolt = null" class="w-full mt-10 py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-2xl font-bold uppercase text-xs tracking-[0.2em] transition-all hover:bg-blue-600 hover:text-white">
-                        Închide
+                    <button @click="selectedBolt = null" class="w-full py-4 bg-slate-900 dark:bg-white text-white dark:text-black rounded-2xl font-bold uppercase text-xs tracking-[0.2em] transition-all hover:bg-blue-600 hover:text-white mt-auto">
+                        Închide Catalogul
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="text-center pb-10 opacity-20 text-[10px] font-bold tracking-[0.5em] uppercase">
+    <footer class="text-center py-12 opacity-20 text-[10px] font-bold tracking-[0.5em] uppercase">
         Engineered for precision // 2026
     </footer>
 
