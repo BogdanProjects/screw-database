@@ -1,0 +1,14 @@
+SCREWDATA PRO - LICENȚĂ ȘI TERMENI
+
+Toate drepturile asupra codului sursă, design-ului și bazei de date aparțin autorului.
+
+Utilizarea este permisă doar în scop personal/educativ.
+
+Este strict interzisă:
+
+Copierea și găzduirea codului pe alte servere fără acord.
+
+Utilizarea bazei de date în aplicații comerciale.
+
+Modificarea și redistribuirea sub alt nume.
+Copyright (c) 2026.
