@@ -104,7 +104,7 @@
         <div class="bg-white dark:bg-white/5 p-2 rounded-[2rem] border border-slate-200 dark:border-white/10 flex flex-col md:flex-row gap-2 mb-16 shadow-xl shadow-blue-500/5">
             <input type="text" x-model="search" placeholder="Caută dimensiune (ex: M6)..." class="bg-transparent py-4 px-8 outline-none text-lg flex-grow">
             <div class="flex gap-1 p-1 overflow-x-auto">
-                <template x-for="t in [['all','Toate'], ['hex_nut','NUT'], ['hex','Hex'], ['imbus','Cilindric'], ['inecat','Inecat']]">
+                <template x-for="t in [['all','Toate'], ['hex_nut','Piulite Hex'], ['hex','Hex'], ['imbus','Cilindric'], ['inecat','Inecat']]">
                     <button @click="filterType = t[0]" 
                         :class="filterType === t[0] ? 'bg-blue-600 text-white shadow-lg' : 'hover:bg-slate-100 dark:hover:bg-white/10'"
                         class="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all whitespace-nowrap" x-text="t[1]">
